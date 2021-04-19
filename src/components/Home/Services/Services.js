@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-// import { UserContext } from '../../App';
 import {UserContext} from '../../../App';
+import Sidebar from '../../Sidebar/Sidebar';
 
 const Services = () => {
 
@@ -78,7 +78,7 @@ const Services = () => {
         <div className="container-fluid row" style={containerStyle}>
 
             <div className="col-md-2">
-                {/* <Sidebar></Sidebar> */}
+                <Sidebar></Sidebar>
             </div>
 
             {/* <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}> */}

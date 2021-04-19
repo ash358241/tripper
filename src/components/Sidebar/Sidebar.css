@@ -7,19 +7,20 @@
 .sideBarlink::after {
     content: '';
     display: block;
+    background: #3E8FFB;
     width: 0;
     height: 2px;
-    background: #3E8FFB;
     transition: width .3s;
 }
 
 .sideBarlink:hover::after {
-    width: 100%;
-    
+    width: 85%;
+
 }
 
  .sideBarlink:hover{
     text-decoration: none;
+
 } 
 
  /* .sideBarlink:hover{

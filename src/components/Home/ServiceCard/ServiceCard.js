@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
+import "./ServiceCard.css";
 
 
 const ServiceCard = ({serviceData}) => {
@@ -16,7 +16,7 @@ const ServiceCard = ({serviceData}) => {
     return (
 
 
-        <Card className="text-center" style={{ width: '18rem' }}>
+        <Card id="card" className="text-center" style={{border: "none"}} >
         <Card.Img variant="top" src={imageURL} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -24,7 +24,7 @@ const ServiceCard = ({serviceData}) => {
           <Card.Text>
           {description}
           </Card.Text>
-          <Button onClick={() => handleClick(_id)} variant="primary">Place Order</Button>
+          <Button onClick={() => handleClick(_id)} variant="info">Place Order</Button>
         </Card.Body>
       </Card>
 

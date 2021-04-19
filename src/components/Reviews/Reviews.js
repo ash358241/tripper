@@ -13,9 +13,9 @@ const Reviews = () => {
     }, [])
 
     return (
-        <section style={{ margin: 200 }}>
+        <section style={{marginBottom:"80px"}}>
 
-            <div className="container">
+            <div className="container my-5">
                 <div>
                     <h1 className="text-center">Clients <span style={{ color: '#7AB259' }}>Testimonial</span></h1>
                 </div>

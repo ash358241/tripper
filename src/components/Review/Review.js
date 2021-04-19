@@ -9,7 +9,7 @@ const Review = ({ reviewData }) => {
     // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     return (
-        <div className="card trans-card" id="clientReview">
+        <div style={{padding: '30px', boxShadow: '5px 5px 10px lightgrey'}} className="card trans-card" id="clientReview">
             <div className="mt-3 d-flex  align-items-center">
                 <img className="mx-3 rounded-circle" src={userPhoto} alt="" width="60" />
                 <div>

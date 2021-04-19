@@ -26,9 +26,9 @@ const Navbar = () => {
                         <Link className="nav-link text-white mr-5" to="/">Review</Link>
                         </li>
                         <li className="nav-item">
-                        <Link className="nav-link text-white mr-5" to="/postService">Contact</Link>                        </li>
+                        <Link className="nav-link text-white mr-5" to="/">Contact</Link>                        </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white mr-5" to="/postReview">Admin</Link>
+                            <Link className="nav-link text-white mr-5" to="/dashBoard">DashBoard</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link text-white mr-5" to="/login">Login</Link>

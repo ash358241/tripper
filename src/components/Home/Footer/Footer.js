@@ -14,7 +14,7 @@ import {
 
 function Footer() {
   return (
-    <div className='footer-container'>
+    <div className='footer-container mt-5'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
           We Provide World Class Service According To Your Need

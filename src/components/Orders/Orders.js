@@ -23,11 +23,15 @@ const Orders = () => {
 
 	const { register, handleSubmit, errors } = useForm();
 	const onSubmit = (data) => {
+		const newData = {...data}
+		newData.status = "Pending";
+
+
 		console.log(data);
 		fetch("http://localhost:5000/addOrder", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(data),
+			body: JSON.stringify(newData),
 		})
 			.then((res) => res.json())
 			.then(success => {
@@ -73,19 +77,19 @@ const Orders = () => {
 				<form className="customFormStyle mb-5" onSubmit={handleSubmit(onSubmit)} id="myform">
 
 				<div className="form-group animate__animated animate__fadeInRight">
-					<input type="text" {...register("name")} name="name" className="form-control form-control-lg" maxlength="20" value={loggedInUser.name} placeholder="Your Name"/* value={name} */ />
+					<input type="text" {...register("name")} name="name" className="form-control form-control-lg" value={loggedInUser.name} placeholder="Your Name"/* value={name} */ />
 				</div>
 
 				<div className="form-group animate__animated animate__fadeInRight">
-					<input type="email" {...register("email")} name="email" className="form-control form-control-lg" maxlength="25" value={loggedInUser.email}  placeholder="Your Email" />
+					<input type="email" {...register("email")} name="email" className="form-control form-control-lg" value={loggedInUser.email}  placeholder="Your Email" />
 				</div>
 
 				<div className="form-group animate__animated animate__fadeInRight">
-					<input type="text" {...register("title")} name="title" className="form-control form-control-lg" maxlength="25" value={order.name} placeholder="Order Title" />
+					<input type="text" {...register("title")} name="title" className="form-control form-control-lg" value={order.name} placeholder="Order Title" />
 				</div>
 
 				<div className="form-group animate__animated animate__fadeInRight">
-					<input type="digit" {...register("price")} name="price" className="form-control form-control-lg" maxlength="25" value={order.price} placeholder="Order Price"/>
+					<input type="digit" {...register("price")} name="price" className="form-control form-control-lg" value={order.price} placeholder="Order Price"/>
 				</div>
 
 

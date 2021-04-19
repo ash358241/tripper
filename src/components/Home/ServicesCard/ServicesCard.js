@@ -12,11 +12,11 @@ const ServicesCard = () => {
     }, [])
 
     return (
-        <section style={{ margin: 200 }}>
+        <section style={{width: '80%', margin: '0 auto'}} >
 
-            <div className="container">
+            <div className="container-fluid my-5">
                 <div>
-                    <h1 className="text-center">Our <span style={{ color: '#7AB259' }}>Services</span></h1>
+                    <h1 className="text-center">Our <span style={{ color: '#7AB259' }}>Packages</span></h1>
                 </div>
 
                 <div className="card-deck mt-5">
