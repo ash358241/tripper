@@ -2,6 +2,16 @@
 
 ## This site is about to manage travel for you according to your need. 
 
+[Live Link](https://tripper-285e0.web.app/)
+
+## Features:
+1. Add Service 
+2. Add Review 
+3. Make Admin 
+4. Manage Service 
+5. Manage Booking 
+6. Add Order
+
 ### Technologies that are used in this project are:
 1. html
 2. css 
