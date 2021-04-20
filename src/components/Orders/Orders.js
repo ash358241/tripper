@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../App";
 import ProcessPayment from "../ProcessPayment/ProcessPayment";
 import Sidebar from "../Sidebar/Sidebar";
+import { Button } from "react-bootstrap";
 
 const Orders = () => {
 	document.title = "Orders";
@@ -12,40 +13,72 @@ const Orders = () => {
 	const [formSuccessMessage, setFormSuccessMessage] = useState(null);
     const [formErrorMessage, setFormErrorMessage] = useState(null);
 
+	const [orderData, setOrderData] = useState(null);
+
+	const [isBookingConfirm, setIsBookingConfirm] = useState(false)
+
 	const { serviceId } = useParams();
 	const [order, setOrder] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/service/${serviceId}`)
+		fetch(`https://powerful-sierra-98148.herokuapp.com/service/${serviceId}`)
 			.then((res) => res.json())
 			.then(data => setOrder(data));
 	}, [serviceId]);
 
 	const { register, handleSubmit, errors } = useForm();
 	const onSubmit = (data) => {
+
+
 		const newData = {...data}
+		
 		newData.status = "Pending";
 
+		setOrderData(newData)
+
+		setOrderData(newData)
 
 		console.log(data);
-		fetch("http://localhost:5000/addOrder", {
+		
+	};
+
+	const handleSuccessPayment = paymentId => {
+		console.log(paymentId)
+		const dataOrder = {
+			...orderData,
+		    stripePaymentId: paymentId,
+		}
+		console.log(paymentId);
+		setOrderData(dataOrder)
+
+		setIsBookingConfirm(true)
+
+		console.log(orderData);
+
+	}
+
+	const handleBooking = () => {
+		fetch("https://powerful-sierra-98148.herokuapp.com/addOrder", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(newData),
+			body: JSON.stringify(orderData),
 		})
 			.then((res) => res.json())
 			.then(success => {
                 if (success) {
                     setFormSuccessMessage('Service Added successfully ✔️')
                     setFormErrorMessage(null);
-                    document.getElementById('myform').reset(); //reset form data
+
                 } else {
                     setFormErrorMessage('Service Added failed ❌')
                     setFormSuccessMessage(null);
                 }
             })
             .catch(err => console.log(err))
-	};
+
+	}
+
+	
 
 	const containerStyle = {
         height: "100%",
@@ -74,6 +107,10 @@ const Orders = () => {
 				<main className="p-5">
 
 
+				{
+					!orderData && 
+					<div>
+
 				<form className="customFormStyle mb-5" onSubmit={handleSubmit(onSubmit)} id="myform">
 
 				<div className="form-group animate__animated animate__fadeInRight">
@@ -92,9 +129,22 @@ const Orders = () => {
 					<input type="digit" {...register("price")} name="price" className="form-control form-control-lg" value={order.price} placeholder="Order Price"/>
 				</div>
 
-
 				<div className="d-flex justify-content-between">
 					<button type="submit" className="btn btn-success btnSubmit animate__animated animate__fadeInRight" >Submit</button>
+							
+				</div>
+
+				</form>
+				</div>
+
+				}
+
+				{
+					orderData &&
+					<div className="my-3">
+					<ProcessPayment handlePayment={handleSuccessPayment}></ProcessPayment>
+					</div>
+				}
 
 					<div>
 						{
@@ -104,16 +154,15 @@ const Orders = () => {
 							formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
 						}
 					</div>
-				</div>
 
-				</form>
-
-				<h3>Pay for me: </h3>
-
-				<ProcessPayment></ProcessPayment>
+					{
+                			orderData && <Button onClick={handleBooking} disabled={isBookingConfirm === false}> Confirm Booking </Button>
+                     }  
 
 				</main>
+
 			</div>
+
 		</div>
 	);
 };

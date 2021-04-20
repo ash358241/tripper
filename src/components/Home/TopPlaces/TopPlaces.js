@@ -15,19 +15,19 @@ const TopPlaces = () => {
 
             <Carousel className="carousel">
                 <div className="carousel-inner">
-                    <img style={{borderRadius: '10px', width: '50%'}} src={japan} />
+                    <img style={{borderRadius: '10px', width: '100%'}} src={japan} />
                     <p className="legend">Japan Tokyo</p>
                 </div>
                 <div className="carousel-inner">
-                    <img style={{borderRadius: '10px', width: '50%'}} src={spain} />
+                    <img style={{borderRadius: '10px', width: '100%%'}} src={spain} />
                     <p className="legend">Spain Madrid</p>
                 </div>
                 <div className="carousel-inner">
-                    <img style={{borderRadius: '10px', width: '50%'}} src={italy} />
+                    <img style={{borderRadius: '10px', width: '100%%'}} src={italy} />
                     <p className="legend">Italy Venice</p>
                 </div>
                 <div className="carousel-inner">
-                    <img style={{borderRadius: '10px', width: '50%'}} src={europe} />
+                    <img style={{borderRadius: '10px', width: '100%%'}} src={europe} />
                     <p className="legend">Europe City</p>
                 </div>
             </Carousel>

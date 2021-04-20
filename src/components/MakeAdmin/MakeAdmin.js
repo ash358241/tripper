@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
     const handleAddAdmin = (e) => {
 		console.log(admin);
-		fetch("http://localhost:5000/addAdmin", {
+		fetch("https://powerful-sierra-98148.herokuapp.com/addAdmin", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(admin),

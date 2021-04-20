@@ -20,7 +20,7 @@ const Sidebar = () => {
     // const [isUser, setIsUser] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/isAdmin", {
+        fetch("https://powerful-sierra-98148.herokuapp.com/isAdmin", {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({email: loggedInUser.email})

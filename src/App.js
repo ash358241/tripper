@@ -39,24 +39,24 @@ function App() {
         <Route path="/postReview">
           <PostReview></PostReview>
         </Route>
-        <Route path="/postService">
+        <PrivateRoute path="/postService">
           <Services></Services>
-        </Route>
-        <Route path="/orders">
+        </PrivateRoute>
+        <PrivateRoute path="/orders">
           <Orders></Orders>
-        </Route>
-        <Route path="/service/:serviceId">
+        </PrivateRoute>
+        <PrivateRoute path="/service/:serviceId">
           <Orders></Orders>
-        </Route>
-        <Route path="/serviceList" >
+        </PrivateRoute>
+        <PrivateRoute path="/serviceList" >
               <ServiceList></ServiceList>
-            </Route>
-            <Route path="/makeAdmin" >
+            </PrivateRoute>
+            <PrivateRoute path="/makeAdmin" >
               <MakeAdmin></MakeAdmin>
-            </Route>
-            <Route path="/allOrders" >
+            </PrivateRoute>
+            <PrivateRoute path="/allOrders" >
               <AllOrders></AllOrders>
-            </Route>
+            </PrivateRoute>
         <Route exact path="/">
           <Home></Home>
         </Route>

@@ -9,7 +9,7 @@ const ServiceList = () => {
     const { name, email, photoURL } = loggedInUser;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/specificOrder?email=${loggedInUser.email}`)
+        fetch(`https://powerful-sierra-98148.herokuapp.com/allOrders`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])
@@ -22,7 +22,7 @@ const ServiceList = () => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/deleteService/${id}`, {
+        fetch(`https://powerful-sierra-98148.herokuapp.com/deleteService/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -45,7 +45,7 @@ const ServiceList = () => {
 
             <div className="col-md-10" style={{ background: '#F4F7FC' }}>
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
-                    <h1 className="animate__animated animate__fadeInLeft">Order History</h1>
+                    <h1 className="animate__animated animate__fadeInLeft">Service History</h1>
                     <div class="ml-auto">
                         <div className="row align-items-center animate__animated animate__fadeInRight">
                             <div className="col">

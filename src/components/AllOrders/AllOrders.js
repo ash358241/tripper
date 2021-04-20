@@ -24,7 +24,7 @@ const AllOrders = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     useEffect(() => {
-        fetch("http://localhost:5000/allOrders")
+        fetch("https://powerful-sierra-98148.herokuapp.com/allOrders")
         .then(res => res.json())
         .then(data => setOrdersData(data))
     }, [])
@@ -49,7 +49,7 @@ const AllOrders = () => {
 
     const handleUpdate = () => {
         console.log(update);
-        fetch(`http://localhost:5000/updateOrder`, {
+        fetch(`https://powerful-sierra-98148.herokuapp.com/updateOrder`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(update)

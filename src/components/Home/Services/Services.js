@@ -30,7 +30,7 @@ const Services = () => {
         // console.log('gmail data', data);
 
         // insert review into database
-        fetch('http://localhost:5000/addService', {
+        fetch('https://powerful-sierra-98148.herokuapp.com/addService', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(serviceData)
